@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Proposal Day ❤️</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+  font-family:'Poppins',sans-serif;
+  background:radial-gradient(circle at top,#ff9a9e,#fad0c4);
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+  color:#fff;
+  text-align:center;
+}
+
+.story{
+  max-width:420px;
+  padding:30px 22px;
+}
+
+.step{
+  display:none;
+  animation:fadeIn .9s ease;
+}
+
+.step.active{
+  display:block;
+}
+
+h1{
+  font-size:1.8rem;
+  margin-bottom:18px;
+  color:#fff;
+}
+
+p{
+  font-size:1.05rem;
+  line-height:1.8;
+  margin-bottom:22px;
+}
+
+.tap{
+  font-size:.85rem;
+  opacity:.8;
+}
+
+button{
+  margin-top:16px;
+  padding:10px 26px;
+  border:none;
+  border-radius:25px;
+  background:#ff2f68;
+  color:white;
+  font-size:15px;
+}
+
+.heart{
+  position:fixed;
+  top:-20px;
+  font-size:18px;
+  animation:fall linear infinite;
+  opacity:.8;
+}
+
+@keyframes fadeIn{
+  from{opacity:0;transform:translateY(25px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+@keyframes fall{
+  to{transform:translateY(110vh) rotate(360deg)}
+}
+</style>
+</head>
+
+<body>
+
+<div class="story">
+
+<div class="step active">
+<h1>💍 Proposal Day</h1>
+<p>
+This isn’t about a special day.  
+It’s about a feeling that grew quietly  
+and became something I trust with my heart.
+</p>
+<div class="tap">tap anywhere ❤️</div>
+</div>
+
+<div class="step">
+<p>
+With you, my <strong>golu</strong>,  
+I feel calm, understood, and accepted.  
+Being with you feels natural — like home.
+</p>
+<div class="tap">tap to continue</div>
+</div>
+
+<div class="step">
+<p>
+And when you smile, <strong>laddu</strong>,  
+everything around me feels lighter.  
+You bring peace into my life without even trying.
+</p>
+<div class="tap">tap to continue</div>
+</div>
+
+<div class="step">
+<p>
+I promise to stand by you in good days  
+and bad days. To listen, support, respect  
+your dreams, and protect the love  
+we are building together.
+</p>
+<div class="tap">tap to continue</div>
+</div>
+
+<div class="step">
+<h1>❤️ One Honest Question</h1>
+<p>
+Will you be mine forever?
+</p>
+<button onclick="finalStep()">YES 💖</button>
+</div>
+
+<div class="step">
+<h1>🥹❤️</h1>
+<p>
+Happy Proposal Day my <strong>jaana</strong>.<br><br>
+<strong>I choose you. Always.</strong>
+</p>
+</div>
+
+</div>
+
+<script>
+const steps=document.querySelectorAll('.step');
+let current=0;
+
+document.body.addEventListener('click',()=>{
+  if(current<steps.length-2){
+    steps[current].classList.remove('active');
+    current++;
+    steps[current].classList.add('active');
+  }
+});
+
+function finalStep(){
+  steps[current].classList.remove('active');
+  current++;
+  steps[current].classList.add('active');
+}
+
+/* floating hearts */
+const hearts=["❤️","💖","🌹"];
+for(let i=0;i<20;i++){
+  const h=document.createElement("div");
+  h.className="heart";
+  h.textContent=hearts[Math.floor(Math.random()*3)];
+  h.style.left=Math.random()*100+"vw";
+  h.style.animationDuration=6+Math.random()*6+"s";
+  h.style.fontSize=14+Math.random()*16+"px";
+  document.body.appendChild(h);
+}
+</script>
+
+</body>
+</html>
